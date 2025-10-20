@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.wt.com.expense_sharing_app.DTO.ExpenseDTO;
+import org.wt.com.expense_sharing_app.dto.ExpenseDTO;
 import org.wt.com.expense_sharing_app.persistence.entity.BalanceSheet;
 import org.wt.com.expense_sharing_app.persistence.entity.Expense;
 import org.wt.com.expense_sharing_app.persistence.entity.ExpenseShares;
@@ -85,6 +85,11 @@ public class ExpenseServiceImpl implements ExpenseService {
 
             expense.setExpenseShares(expenseSharesList);
         } else {
+            Double sum = expenseDTO.getShares().stream().mapToDouble(share -> share.getShareAmount()).sum();
+            if(sum != expenseDTO.getTotalAmount()) {
+                throw new RuntimeException("Sum of shares does not equal total amount");
+            }
+            
             expenseDTO.getShares().forEach(shareDto -> {
                 User shareUser = userRepository.findById(shareDto.getUserId())
                         .orElseThrow(() -> new EntityNotFoundException("User not found for share"));
@@ -92,6 +97,7 @@ public class ExpenseServiceImpl implements ExpenseService {
                 ExpenseShares expenseShare = new ExpenseShares();
                 expenseShare.setShareAmount(shareDto.getShareAmount());
                 expenseShare.setUser(shareUser);
+                expenseShare.setExpense(expense);
 
                 expenseSharesList.add(expenseShare);
 

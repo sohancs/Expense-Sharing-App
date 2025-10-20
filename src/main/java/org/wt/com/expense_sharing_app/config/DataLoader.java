@@ -2,6 +2,7 @@ package org.wt.com.expense_sharing_app.config;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.wt.com.expense_sharing_app.persistence.entity.BalanceSheet;
 import org.wt.com.expense_sharing_app.persistence.entity.Expense;
 import org.wt.com.expense_sharing_app.persistence.entity.ExpenseShares;
 import org.wt.com.expense_sharing_app.persistence.entity.Group;
@@ -64,35 +65,35 @@ public class DataLoader implements CommandLineRunner {
         ExpenseShares s3 = new ExpenseShares(null, exp1, u3, 100.0);
 
         exp1.setExpenseShares(Arrays.asList(s1, s2, s3));
-        expenseRepository.save(exp1);
+        //expenseRepository.save(exp1);
 
         // Expense 2: Bob paid 200 for "Taxi" (unequal split)
-        Expense exp2 = new Expense();
-        exp2.setDescription("Taxi");
-        exp2.setPaidBy(u2);
-        exp2.setGroup(g1);
-        exp2.setTotalAmount(200.0);
+        // Expense exp2 = new Expense();
+        // exp2.setDescription("Taxi");
+        // exp2.setPaidBy(u2);
+        // exp2.setGroup(g1);
+        // exp2.setTotalAmount(200.0);
 
-        ExpenseShares s4 = new ExpenseShares(null, exp2, u1, 50.0);
-        ExpenseShares s5 = new ExpenseShares(null, exp2, u2, 100.0);
-        ExpenseShares s6 = new ExpenseShares(null, exp2, u3, 50.0);
+        // ExpenseShares s4 = new ExpenseShares(null, exp2, u1, 50.0);
+        // ExpenseShares s5 = new ExpenseShares(null, exp2, u2, 100.0);
+        // ExpenseShares s6 = new ExpenseShares(null, exp2, u3, 50.0);
 
-        exp2.setExpenseShares(Arrays.asList(s4, s5, s6));
-        expenseRepository.save(exp2);
+        // exp2.setExpenseShares(Arrays.asList(s4, s5, s6));
+        // expenseRepository.save(exp2);
 
-        // Expense 3: Office Lunch (Emma paid)
-        Expense exp3 = new Expense();
-        exp3.setDescription("Office Lunch");
-        exp3.setPaidBy(u5);
-        exp3.setGroup(g2);
-        exp3.setTotalAmount(150.0);
+        // // Expense 3: Office Lunch (Emma paid)
+        // Expense exp3 = new Expense();
+        // exp3.setDescription("Office Lunch");
+        // exp3.setPaidBy(u5);
+        // exp3.setGroup(g2);
+        // exp3.setTotalAmount(150.0);
 
-        ExpenseShares s7 = new ExpenseShares(null, exp3, u4, 50.0);
-        ExpenseShares s8 = new ExpenseShares(null, exp3, u5, 50.0);
-        ExpenseShares s9 = new ExpenseShares(null, exp3, u1, 50.0);
+        // ExpenseShares s7 = new ExpenseShares(null, exp3, u4, 50.0);
+        // ExpenseShares s8 = new ExpenseShares(null, exp3, u5, 50.0);
+        // ExpenseShares s9 = new ExpenseShares(null, exp3, u1, 50.0);
 
-        exp3.setExpenseShares(Arrays.asList(s7, s8, s9));
-        expenseRepository.save(exp3);
+        // exp3.setExpenseShares(Arrays.asList(s7, s8, s9));
+        // expenseRepository.save(exp3);
 
         System.out.println("✅ Sample data loaded successfully!");
     }

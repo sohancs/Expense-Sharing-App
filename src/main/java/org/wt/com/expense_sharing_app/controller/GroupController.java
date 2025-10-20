@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.wt.com.expense_sharing_app.DTO.APIResponseDTO;
-import org.wt.com.expense_sharing_app.DTO.GroupDTO;
+import org.wt.com.expense_sharing_app.dto.APIResponseDTO;
+import org.wt.com.expense_sharing_app.dto.GroupDTO;
 import org.wt.com.expense_sharing_app.service.GroupService;
 
 import jakarta.validation.Valid;

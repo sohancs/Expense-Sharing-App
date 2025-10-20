@@ -3,6 +3,8 @@ package org.wt.com.expense_sharing_app.persistence.entity;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,6 +46,6 @@ public class Expense {
     @JoinColumn(name = "USER_ID")
     private User paidBy;
 
-    @OneToMany(mappedBy = "expense")
+    @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ExpenseShares> expenseShares = new ArrayList<>();
 }

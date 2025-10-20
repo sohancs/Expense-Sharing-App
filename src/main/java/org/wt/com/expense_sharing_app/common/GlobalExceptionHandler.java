@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.wt.com.expense_sharing_app.DTO.APIResponseDTO;
+import org.wt.com.expense_sharing_app.dto.APIResponseDTO;
 
 import java.sql.SQLException;
 

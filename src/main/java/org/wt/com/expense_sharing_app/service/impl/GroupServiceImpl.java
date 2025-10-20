@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import org.wt.com.expense_sharing_app.DTO.GroupDTO;
+import org.wt.com.expense_sharing_app.dto.GroupDTO;
 import org.wt.com.expense_sharing_app.persistence.entity.Group;
 import org.wt.com.expense_sharing_app.persistence.entity.User;
 import org.wt.com.expense_sharing_app.persistence.repository.GroupRepository;

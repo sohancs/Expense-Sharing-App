@@ -2,8 +2,8 @@ package org.wt.com.expense_sharing_app.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.wt.com.expense_sharing_app.DTO.BalanceDTO;
-import org.wt.com.expense_sharing_app.DTO.SettlementDTO;
+import org.wt.com.expense_sharing_app.dto.BalanceDTO;
+import org.wt.com.expense_sharing_app.dto.SettlementDTO;
 import org.wt.com.expense_sharing_app.persistence.entity.BalanceSheet;
 import org.wt.com.expense_sharing_app.persistence.entity.Group;
 import org.wt.com.expense_sharing_app.persistence.entity.Settlement;

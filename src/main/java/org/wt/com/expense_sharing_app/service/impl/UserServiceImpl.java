@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.wt.com.expense_sharing_app.DTO.UserDTO;
+import org.wt.com.expense_sharing_app.dto.UserDTO;
 import org.wt.com.expense_sharing_app.persistence.entity.User;
 import org.wt.com.expense_sharing_app.persistence.repository.UserRepository;
 import org.wt.com.expense_sharing_app.service.UserService;

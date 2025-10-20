@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.wt.com.expense_sharing_app.DTO.APIResponseDTO;
-import org.wt.com.expense_sharing_app.DTO.ExpenseDTO;
+import org.wt.com.expense_sharing_app.dto.APIResponseDTO;
+import org.wt.com.expense_sharing_app.dto.ExpenseDTO;
 import org.wt.com.expense_sharing_app.service.ExpenseService;
 
 import jakarta.validation.Valid;
@@ -22,10 +22,11 @@ public class ExpenseController {
 
     @PostMapping(value = "/addExpense")
     public ResponseEntity<?> addExpense(@Valid @RequestBody ExpenseDTO expenseDTO) {
+        expenseService.addExpense(expenseDTO);
          return ResponseEntity.ok(APIResponseDTO.builder()
             .errorCode(null)
             .errorMessage(null)
-            .data(expenseService.addExpense(expenseDTO))
+            .data("Expense added successfully in group ID : " + expenseDTO.getGroupId())
             .build());
     }
 

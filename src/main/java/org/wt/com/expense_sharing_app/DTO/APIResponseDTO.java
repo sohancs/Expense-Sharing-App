@@ -1,4 +1,4 @@
-package org.wt.com.expense_sharing_app.DTO;
+package org.wt.com.expense_sharing_app.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
