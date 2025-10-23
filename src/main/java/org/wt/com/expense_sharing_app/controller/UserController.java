@@ -1,10 +1,10 @@
 package org.wt.com.expense_sharing_app.controller;
 
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.wt.com.expense_sharing_app.dto.APIResponseDTO;
 import org.wt.com.expense_sharing_app.dto.UserDTO;
-import org.wt.com.expense_sharing_app.persistence.entity.User;
 import org.wt.com.expense_sharing_app.service.UserService;
 
 import jakarta.validation.Valid;
@@ -40,6 +39,12 @@ public class UserController {
             .errorMessage(null)
             .data(userService.getAllUsers())
             .build());
+    }
+
+    @GetMapping("/admin-only")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String adminOnly() {
+        return "Only Admin can access this service";
     }
 }
 

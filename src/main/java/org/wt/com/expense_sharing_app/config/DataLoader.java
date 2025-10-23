@@ -37,11 +37,11 @@ public class DataLoader implements CommandLineRunner {
     private void loadSampleData() {
 
         // Create Users
-        User u1 = new User(null, "Alice", "alice@gmail.com", "0501234567");
-        User u2 = new User(null, "Bob", "bob@gmail.com", "0502345678");
-        User u3 = new User(null, "Charlie", "charlie@gmail.com", "0503456789");
-        User u4 = new User(null, "David", "david@gmail.com", "0504567890");
-        User u5 = new User(null, "Emma", "emma@gmail.com", "0505678901");
+        User u1 = new User("Alice", "alice@gmail.com", "0501234567", "ROLE_ADMIN");
+        User u2 = new User("Bob", "bob@gmail.com", "0502345678", "ROLE_USER");
+        User u3 = new User("Charlie", "charlie@gmail.com", "0503456789","ROLE_USER");
+        User u4 = new User("David", "david@gmail.com", "0504567890", "ROLE_USER");
+        User u5 = new User("Emma", "emma@gmail.com", "0505678901", "ROLE_USER");
 
         List<User> users = userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5));
 

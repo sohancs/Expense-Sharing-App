@@ -10,6 +10,12 @@ import org.wt.com.expense_sharing_app.persistence.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findByUserId(Long paidById);
+    Optional<User> findByUserId(Long userId);
+
+    Optional<User> findByName(String name);
+
+    Optional<User> findByEmail(String email);
+
+    Optional<User> findByGoogleId(String googleId);
 
 }

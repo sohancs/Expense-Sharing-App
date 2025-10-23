@@ -29,6 +29,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(userId).orElse(null);
     }
 
+    public User getUserByName(String userName) {
+        return userRepository.findByName(userName).orElse(null);
+    }
+
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }

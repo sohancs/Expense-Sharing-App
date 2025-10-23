@@ -10,6 +10,8 @@ import org.wt.com.expense_sharing_app.dto.APIResponseDTO;
 
 import java.sql.SQLException;
 
+import javax.security.auth.login.CredentialNotFoundException;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -52,4 +54,16 @@ public class GlobalExceptionHandler {
                 .build();
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(CredentialNotFoundException.class)
+    public ResponseEntity<?> handleCredentialNotFoundException(CredentialNotFoundException ex) {
+        APIResponseDTO<Object> response = APIResponseDTO.builder()
+                .errorCode("403")
+                .errorMessage("Incorrect Credentials: " + ex.getMessage())
+                .data(null)
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+    }
+
+
 }

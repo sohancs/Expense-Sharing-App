@@ -1,0 +1,20 @@
+spring:
+    security:
+        oauth2:
+            client:
+                registration:
+                    google:
+                        client-id: <client-id>
+                        client-secret: <secret>
+                        scope:
+                            - profile
+                            - email
+          
+jwt:
+    secret: mmmmmmyyyyyseeeeeeeccccccccreeeeeettttttttkkkkkeeeeyyyyyyyyyyyyyyyyyyyyyyy
+    expiration-in-mins: 60
+
+
+admin:
+    email : 
+        admin@gmail.com
