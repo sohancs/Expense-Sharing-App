@@ -16,6 +16,7 @@ import org.wt.com.expense_sharing_app.service.SettlementService;
 import org.wt.com.expense_sharing_app.util.CommonUtil;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -37,6 +38,7 @@ public class SettlementServiceImpl implements SettlementService {
     @Autowired
     private CommonUtil commonUtil;
 
+    @Transactional
     public Settlement settleUpBalance(SettlementDTO settlementDTO) {
         
        Group group = groupRepository.findByGroupId(settlementDTO.getGroupId())
